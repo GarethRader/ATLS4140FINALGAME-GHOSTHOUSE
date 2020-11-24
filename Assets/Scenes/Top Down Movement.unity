@@ -1211,6 +1211,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1123488589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123488590}
+  - component: {fileID: 1123488591}
+  m_Layer: 0
+  m_Name: FlashLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1123488590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123488589}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 4.53, z: 4.58}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 1500701442}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!64 &1123488591
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123488589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1272449337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1906,12 @@ RectTransform:
 --- !u!4 &1500701442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8371917990815821478, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+    type: 3}
+  m_PrefabInstance: {fileID: 8371917989858348121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1600823209 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8901925596365385232, guid: 1eb4c321e8305cf4a85bf5749421d0db,
     type: 3}
   m_PrefabInstance: {fileID: 8371917989858348121}
   m_PrefabAsset: {fileID: 0}
@@ -2527,10 +2578,45 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 953240365751224060, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 953240365751224060, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1600823209}
+    - target: {fileID: 953240365751224060, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: RotateTowardMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953240365751224060, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: MovementSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 953240365751224060, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: RotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 953240365751224060, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8371917990815821474, guid: 1eb4c321e8305cf4a85bf5749421d0db,
         type: 3}
       propertyPath: m_Name
       value: CharacterPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371917990815821474, guid: 1eb4c321e8305cf4a85bf5749421d0db,
+        type: 3}
+      propertyPath: m_TagString
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 8371917990815821478, guid: 1eb4c321e8305cf4a85bf5749421d0db,
         type: 3}
@@ -2587,5 +2673,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1986772385618753538, guid: 1eb4c321e8305cf4a85bf5749421d0db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1eb4c321e8305cf4a85bf5749421d0db, type: 3}

@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
  
         //USE FLASHLIGHT
     private void HandleFlashLight(){
-        if(Input.GetKeyDown(KeyCode.F)){
+        if(Input.GetKeyDown(KeyCode.F)){ // F to toggle flashlight on and off
             flashLight.UseFlashLight();
         }
     }
@@ -117,8 +117,8 @@ public class Player : MonoBehaviour
 
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
-            healthSystem.Damage(20);
-            inventory.UseItem(new Item("Battery", ItemTypes.Battery)); // for debugging purposes
+            //healthSystem.Damage(20);
+            //inventory.UseItem(new Item("Battery", ItemTypes.Battery)); // for debugging purposes
         }
     }
 
