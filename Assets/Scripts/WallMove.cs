@@ -7,14 +7,17 @@ public class WallMove : MonoBehaviour
 {
     public float speed = 1f;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        StartCoroutine("Rotate", 2.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Rotate(0, speed, 0);
+    private IEnumerator Rotate(){
+        transform.Rotate(new Vector3(0,90,0), Space.Self);
+        Debug.Log("Rotated");
+        yield return new WaitForSeconds(4.0f);
+        yield return StartCoroutine("Rotate");
+
     }
+   
 }

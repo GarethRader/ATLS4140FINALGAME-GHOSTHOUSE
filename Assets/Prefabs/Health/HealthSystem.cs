@@ -21,13 +21,13 @@ public class HealthSystem
         this.health -= amount;
         if(this.health < 0) health = 0;
         if(OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
-        Debug.Log("Health: " + health);
+        //Debug.Log("Health: " + health);
     }
 
     public void Heal(int amount){
         this.health += amount;
         if(this.health > maxHealth) health = maxHealth;
         if(OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
-        Debug.Log("Health: " + health);
+        //Debug.Log("Health: " + health);
     }
 }

@@ -45,11 +45,13 @@ public class Player : MonoBehaviour
         Normal,
     }
 
+    
+
     private void Awake() {
         Instance = this;
         //playerBase = gameObject.GetComponent<Player_Base>();
         //SetStateNormal();
-
+        Camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         healthSystem = new HealthSystem(100);
         Transform healthBarTransform = GameObject.FindGameObjectWithTag("PlayerHealth").transform;
         HealthBar healthBar = healthBarTransform.GetComponent<HealthBar>();
@@ -169,7 +171,15 @@ public class Player : MonoBehaviour
         return transform.position;
     }
 
-    private void isDead(){
+    public void Heal(int amount){
+        healthSystem.Heal(amount);
+    }
+    public void TakeDamage(int amount){
+        healthSystem.Damage(amount);
+        checkIsDead();
+    }
+
+    private void checkIsDead(){
         if(healthSystem.GetHealthPercentage() == 0){
             // GAMEOVER screen
         }

@@ -12,6 +12,7 @@ public class GameHandlerScript : MonoBehaviour
     [SerializeField] private float zoom = 30f; // sets standard zoom at start
     private void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("player").GetComponent<Transform>();
         cameraFollow.Setup(() => playerTransform.position, () => zoom); // sets camera to follow player object
         
     }
