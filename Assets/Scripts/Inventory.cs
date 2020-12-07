@@ -27,8 +27,16 @@ public class Inventory : MonoBehaviour
     public Dictionary<ItemTypes,int> GetInventory(){
         return inventory;
     }
-    public int Get(ItemTypes item){
-        if(inventory.TryGetValue(item, out int current)){
+    public int Get(string itemName){
+        Item item = null;
+        if(itemName == "Battery"){
+            item = new Item("Battery");
+        }
+        if(itemName  == "Note"){
+            item = new Item("Note");
+        }
+        if(item == null) return -1;
+        if(inventory.TryGetValue(item.type, out int current)){
             return current;
         }
         else{
@@ -43,12 +51,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void UseItem(Item item) {
+    public void UseItem(string itemName) {
         //Debug.Log(item.type);
-        if(item.itemName == "Battery"){
+        if(itemName == "Battery"){
+            
             Debug.Log("battery clicked");
         }
-        if(item.itemName == "Note"){
+        if(itemName == "Note"){
             Debug.Log("Note clicked");
         }
     }

@@ -13,9 +13,17 @@ public class Item : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("player");
         inventory = player.GetComponent<Inventory>();
     }
-
+    public Item(string name){
+        if(name == "Battery"){
+            type = ItemTypes.Battery;
+        }
+        if(name == "Note"){
+            type = ItemTypes.Note;
+        }
+        itemName = name;
+    }
     public Item(string name, ItemTypes type){
-        name = itemName;
+        itemName = name;
         type = type;
     }
     public Sprite GetSprite(){

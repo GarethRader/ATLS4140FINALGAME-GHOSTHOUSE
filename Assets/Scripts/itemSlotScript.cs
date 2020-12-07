@@ -17,21 +17,25 @@ public class itemSlotScript : MonoBehaviour, IPointerClickHandler
     private Transform itemSlotContainer;
     [SerializeField]
     private Transform itemSlotTemplate;
+    private TextMesh text;
 
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
         inventory =  player.GetComponent<Inventory>();
+        text = GetComponentInChildren<TextMesh>();
+        text.color = Color.white;
+        text.text = inventory.Get(itemName).ToString();
     }
     public void OnPointerClick(PointerEventData click){
         // use item from inventory (just call function from inventory)
-        Debug.Log("item clicked");
+        //Debug.Log("item clicked");
         if(this.itemName == "Battery"){
-            inventory.UseItem(new Item("Battery", ItemTypes.Battery));
+            inventory.UseItem("Battery");
             player.FillFlashLight();
         }
         if(this.itemName == "Note"){
             //show note 
-            inventory.UseItem(new Item("Note",ItemTypes.Note));
+            inventory.UseItem("Note");
         }                     
     }
 }
