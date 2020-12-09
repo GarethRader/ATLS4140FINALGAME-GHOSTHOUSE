@@ -12,6 +12,8 @@ public class FlashLight : MonoBehaviour
     private int frames = 0;
     [SerializeField]
     private MeshRenderer flashLightMesh;
+    [SerializeField]
+    AudioSource flashLightSound;
 
     private void Awake(){
         // REUSING HEALTH SYSTEM FOR BATTERY SYSTEM
@@ -24,10 +26,13 @@ public class FlashLight : MonoBehaviour
         collider.enabled = false;
         flashLightMesh = transform.Find("flashlight 1").GetComponent<MeshRenderer>();
         flashLightMesh.enabled = false;
+        flashLightSound = GetComponent<AudioSource>();
     }
     public void UseFlashLight(){
+        // INSERT FLASHLIGHT SOUND
         //turn on flashlight and drain while on
         isTurnedOn ^= true; // will change to opposite state
+        flashLightSound.Play();
         collider.enabled ^= true;
         flashLightMesh.enabled ^= true;
     }
@@ -41,7 +46,6 @@ public class FlashLight : MonoBehaviour
             if(batterySystem.GetHealthPercentage() > 0) batterySystem.Damage(1);
             else ForceTurnOffFlashLight();
             //drain battery and activate collider
-            
         }
     }
 

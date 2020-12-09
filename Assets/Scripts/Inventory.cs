@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
         if(itemName  == "Note"){
             item = new Item("Note");
         }
-        if(item == null) return -1;
+        if(item == null) return 0;
         if(inventory.TryGetValue(item.type, out int current)){
             return current;
         }
@@ -54,7 +54,7 @@ public class Inventory : MonoBehaviour
     public void UseItem(string itemName) {
         //Debug.Log(item.type);
         if(itemName == "Battery"){
-            
+            inventory[ItemTypes.Battery] --;
             Debug.Log("battery clicked");
         }
         if(itemName == "Note"){

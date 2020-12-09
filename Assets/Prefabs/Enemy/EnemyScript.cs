@@ -19,7 +19,8 @@ public class EnemyScript : MonoBehaviour
     private bool lit;
     private Vector3 newPos;
     private Rigidbody rb;
-    
+    [SerializeField]
+    AudioSource ghostSound;
     public bool seePlayer{set; get;}
     private bool runFromPlayer = false;
 
@@ -34,6 +35,7 @@ public class EnemyScript : MonoBehaviour
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         health = new HealthSystem(100);
         playerObject = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
+        ghostSound = GetComponent<AudioSource>();
     }
     private void FixedUpdate(){
         withinAggroColliders = Physics.OverlapSphere(transform.position, aggroRadious, aggroLayerMask );
@@ -71,6 +73,7 @@ public class EnemyScript : MonoBehaviour
     private void ChasePlayer(Player player){
         float step = 3f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(this.transform.position, playerObject.transform.position, step);
+        ghostSound.Play();
         //if(Vector3.Distance(this.transform.position, playerObject.transform.position) <0.1f){
 
         //}

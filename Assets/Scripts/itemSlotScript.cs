@@ -32,10 +32,12 @@ public class itemSlotScript : MonoBehaviour, IPointerClickHandler
         if(this.itemName == "Battery"){
             inventory.UseItem("Battery");
             player.FillFlashLight();
+            text.text = inventory.Get("Battery").ToString();
         }
         if(this.itemName == "Note"){
             //show note 
             inventory.UseItem("Note");
+            text.text = inventory.Get("Battery").ToString();
         }                     
     }
 }
